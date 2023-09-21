@@ -11,9 +11,9 @@
 │       ├── dht11            //センサデバイスdht11からデータを取得するサンプル  
 │       └── mqtt_cam         //ESP32上のカメラから静止画をMQTTでアップするサンプル  
 ├── lambda  
-│   ├── query_dynamodb.py     //DynamoDBの値を取得するプログラムサンプル  
-│   └── send_mqtt_command.py  //MQTTのコマンドを送信するサンプル  
+│   ├── getDynamoDBStatus.py     //DynamoDBの値を取得するプログラムサンプル  
+│   └── sendCommand.py           //MQTTのコマンドを送信するサンプル  
 └── frontend  
-    └── ndex.html            //Led制御のためのフロントエンドサンプル  
+    └── index.html            //Led制御のためのフロントエンドサンプル  
 
 ```
