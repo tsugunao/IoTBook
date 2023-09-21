@@ -79,7 +79,7 @@ $(function() {
 
 
 $('#on_button').click(function(){
-      posturl= "https://iilccvda64.execute-api.ap-northeast-1.amazonaws.com/dev/"+target
+      posturl= "<ご自身でDEPLOYしたAPIのURL>"+target
       postcommand="turn_on"
       $.ajax({
             type : "POST",
@@ -98,7 +98,7 @@ $('#on_button').click(function(){
 });
 
 $('#off_button').click(function(){
-      posturl= "https://iilccvda64.execute-api.ap-northeast-1.amazonaws.com/dev/"+target
+      posturl= "<ご自身でDEPLOYしたAPIのURL>"+target
       postcommand="turn_off"
       $.ajax({
             type : "POST",
@@ -125,7 +125,7 @@ $('#update_button').click(function(){
 
 function getStatus() {
   target=$('#deviceid').val();
-  geturl= "https://iilccvda64.execute-api.ap-northeast-1.amazonaws.com/dev/"+target+"?item=led_status"
+  geturl= "<ご自身でDEPLOYしたAPIのURL>"+target+"?item=led_status"
       $.ajax({
             type : "GET",
             url : geturl,
