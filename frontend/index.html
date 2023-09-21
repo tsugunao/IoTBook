@@ -1,0 +1,159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+  <title>Device Control Sample Web Application<input type="text" size="40" value="名前を入力"></title>
+  <meta charset="utf-8">
+ <style>
+
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    font-family: "serif";
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
+.c-button {
+  appearance: none;
+  border: 0;
+  margin: 5px 0;
+  border-radius: 5px;
+  background: #4676D7;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+.c-button:hover {
+  background: #1d49aa;
+}
+ 
+.c-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
+}
+.c-button.isInActive {
+  background #C0C0C0;
+}
+
+ </style>
+
+</head>
+<body>
+  <div class="box2"> ターゲットデバイス: <text id="devicename">esp32-thing </text> <br>
+ <input type="text" id="deviceid"  value="esp32-thing"> <br>
+ <input type="button" class=c-button value="デバイスを変更" id="setButton">
+  </div>
+
+<div class="box2"> 現在のLEDの状態: <text id="ledstatus"> OFF</text> <br>
+
+<input type="button" class=c-button value="状態の更新" id="update_button">
+</div>
+
+<div class="box2"> LEDのコントロール <br>
+<input type="button" class=c-button value="ON" id="on_button">
+<input type="button" class=c-button value="OFF" id="off_button">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+  $("#setButton").click(function(){
+    const dev= $("#deviceid").val();
+    $("#devicename").text(dev);
+  });
+
+led_status = 'off';
+$(function() {
+
+  target=$('#deviceid').val();
+  led_status= getStatus(); 
+
+});
+
+
+$('#on_button').click(function(){
+      posturl= "https://iilccvda64.execute-api.ap-northeast-1.amazonaws.com/dev/"+target
+      postcommand="turn_on"
+      $.ajax({
+            type : "POST",
+            url : posturl,
+            dataType: "text",
+            data:postcommand,
+            success: function(resp, status) {
+                         console.log(resp);
+                         led_status=getStatus();
+                         console.log(led_status);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(errorThrown)
+            }
+      });
+});
+
+$('#off_button').click(function(){
+      posturl= "https://iilccvda64.execute-api.ap-northeast-1.amazonaws.com/dev/"+target
+      postcommand="turn_off"
+      $.ajax({
+            type : "POST",
+            url : posturl,
+            dataType: "text",
+            data:postcommand,
+            success: function(resp, status) {
+                         console.log(resp);
+                         led_status=getStatus();
+                         console.log(led_status);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(errorThrown)
+            }
+      });
+});
+
+
+
+$('#update_button').click(function(){
+      status=getStatus();
+});
+
+
+function getStatus() {
+  target=$('#deviceid').val();
+  geturl= "https://iilccvda64.execute-api.ap-northeast-1.amazonaws.com/dev/"+target+"?item=led_status"
+      $.ajax({
+            type : "GET",
+            url : geturl,
+            success: function(resp, status) {
+              if(resp[target]['led_status'] == 0){
+                led_status = 'off'
+              } else if (resp[target]['led_status'] == 1){
+                led_status = 'on'
+              }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                  console.log("Get API call failed")
+            }
+        });
+      console.log(led_status);
+      if(led_status == "on"){
+        $('#ledstatus').text('ON');
+        $('#on_button').css('background-color',"#c0c0c0");
+        $('#off_button').css('background-color',"#4676D7")
+      } else if(led_status == "off"){
+        $('#ledstatus').text('OFF');
+        $('#on_button').css('background-color',"#4676D7")
+        $('#off_button').css('background-color',"#c0c0c0")
+      }
+      return led_status;
+}
+
+
+</script>
+</body>
+</html>
