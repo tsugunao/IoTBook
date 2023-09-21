@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

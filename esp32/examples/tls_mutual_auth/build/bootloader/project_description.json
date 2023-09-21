@@ -1,0 +1,23 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "/Users/tsugunao/Work/esp32/v44/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/build/bootloader",
+    "config_file":        "/Users/tsugunao/Work/esp32/esp-aws-iot/examples/mqtt/tls_mutual_auth/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.4.4-435-g7641c8ef4f",
+    "target":             "esp32",
+    "rev":                "0",
+    "min_rev":            "0",
+    "max_rev":            "399",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "/Users/tsugunao/Work/esp32/v44/esp-idf/components/efuse/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp32/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_common/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_hw_support/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_system/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/freertos/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/hal/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/log/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/newlib/Kconfig;/Users/tsugunao/Work/esp32/v44/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/Users/tsugunao/Work/esp32/v44/esp-idf/components/bootloader/Kconfig.projbuild;/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_rom/Kconfig.projbuild;/Users/tsugunao/Work/esp32/v44/esp-idf/components/esptool_py/Kconfig.projbuild;/Users/tsugunao/Work/esp32/v44/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/Users/tsugunao/Work/esp32/v44/esp-idf/components/bootloader", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/bootloader_support", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/efuse", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp32", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_common", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_hw_support", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_rom", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/esp_system", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/esptool_py", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/freertos", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/hal", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/log", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/bootloader/subproject/main", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/bootloader/subproject/components/micro-ecc", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/newlib", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/partition_table", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/soc", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/spi_flash", "/Users/tsugunao/Work/esp32/v44/esp-idf/components/xtensa", "" ]
+}
