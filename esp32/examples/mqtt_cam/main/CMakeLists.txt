@@ -1,12 +1,11 @@
 set(COMPONENT_SRCS
 	"app_main.c"
 	"mqtt_demo_mutual_auth.c"
-	"./../../../../../esp-idf/components/esp32-DHT11/dht11.c"
 	)
 
 set(COMPONENT_ADD_INCLUDEDIRS
 	"."
-	"./../../../../../esp-idf/components/esp32-DHT11/include/"
+	"./../../../../../esp-idf/components/"
 	"${CMAKE_CURRENT_LIST_DIR}"
 	)
 
