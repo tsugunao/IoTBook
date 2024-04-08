@@ -13,7 +13,8 @@
 ├── lambda  
 │   ├── getDynamoDBStatus.py     //DynamoDBの値を取得するプログラムサンプル  
 │   └── sendCommand.py           //MQTTのコマンドを送信するサンプル  
-└── frontend  
-    └── index.html            //Led制御のためのフロントエンドサンプル  
-
+├── frontend
+│   └── index.html            //Led制御のためのフロントエンドサンプル  
+└── notebook
+    └── section6_nasa-bearing.ipynb  //ベアリング異常検知モデルを作成するノートブックサンプル
 ```
