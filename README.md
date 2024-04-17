@@ -15,6 +15,9 @@
 │   └── sendCommand.py           //MQTTのコマンドを送信するサンプル  
 ├── frontend
 │   └── index.html            //Led制御のためのフロントエンドサンプル  
-└── notebook
-    └── section6_nasa-bearing.ipynb  //ベアリング異常検知モデルを作成するノートブックサンプル
+└── predictive_maintenance
+    ├── lambda
+    │   └── kfs-json2csv.py //Kinesis Firehoseでjson形式で受け取ったデータをcsvに変換するLambda関数サンプル
+    └── notebook
+        └── section6_nasa-bearing.ipynb //ベアリング異常検知モデルを作成するノートブックサンプル
 ```
