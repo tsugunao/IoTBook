@@ -1,0 +1,96 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "Lambda Invoke",
+  "States": {
+    "Lambda Invoke": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:ap-northeast-1:xxxxxxxxxxxx:function:get-exec-datetime:$LATEST"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "SageMaker CreateTransformJob"
+    },
+    "SageMaker CreateTransformJob": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sagemaker:createTransformJob.sync",
+      "Parameters": {
+        "ModelName": "{your model name}",
+        "BatchStrategy": "MultiRecord",
+        "DataProcessing": {
+          "InputFilter": "$[1:4]",
+          "JoinSource": "Input"
+        },
+        "TransformInput": {
+          "CompressionType": "None",
+          "ContentType": "text/csv",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "S3Prefix",
+              "S3Uri.$": "States.Format('s3://{your bucket name}/csv/3rd_test/{}/{}/{}',$.PrevYear,$.PrevMonth,$.PrevDay)"
+            }
+          },
+          "SplitType": "Line"
+        },
+        "TransformOutput": {
+          "AssembleWith": "Line",
+          "Accept": "text/csv",
+          "S3OutputPath.$": "States.Format('s3://{your bucket name}/inference-data/{}/{}/{}',$.PrevYear,$.PrevMonth,$.PrevDay)"
+        },
+        "TransformResources": {
+          "InstanceCount": 4,
+          "InstanceType": "ml.m5.xlarge"
+        },
+        "TransformJobName.$": "States.Format('myjob-{}-{}-{}', $.StartDate, $.StartHour, $.StartMinute)"
+      },
+      "ResultPath": "$.key",
+      "Next": "Lambda Invoke (1)"
+    },
+    "Lambda Invoke (1)": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "OutputPath": "$.Payload",
+      "Parameters": {
+        "Payload.$": "$",
+        "FunctionName": "arn:aws:lambda:ap-northeast-1:xxxxxxxxxxxx:function:anomaly-detection:$LATEST"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException",
+            "Lambda.TooManyRequestsException"
+          ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Next": "SNS Publish"
+    },
+    "SNS Publish": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "Message.$": "$",
+        "TopicArn": "arn:aws:sns:ap-northeast-1:xxxxxxxxxxxx:AnomalyDetectionTopic"
+      },
+      "End": true
+    }
+  }
+}

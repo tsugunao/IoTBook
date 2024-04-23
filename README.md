@@ -17,7 +17,13 @@
 │   └── index.html            //Led制御のためのフロントエンドサンプル  
 └── predictive_maintenance
     ├── lambda
+    │   ├── anomaly-detection.py //異常検知判定ロジックを実装したLambda関数サンプル
+    │   ├── get-exec-datetime.py //実行日時を出力するLambda関数サンプル
     │   └── kfs-json2csv.py //Kinesis Firehoseでjson形式で受け取ったデータをcsvに変換するLambda関数サンプル
-    └── notebook
-        └── section6_nasa-bearing.ipynb //ベアリング異常検知モデルを作成するノートブックサンプル
+    ├── notebook
+    │   ├── section6-data-processing.ipynb //NASA Bearing Datasetを推論用データに加工するノートブックサンプル
+    │   └── section6_nasa-bearing.ipynb //ベアリング異常検知モデルを作成するノートブックサンプル
+    └── sfn
+        └── anomaly-detection.asl.json //予兆検知システムのStepFunctionsのステートマシーンサンプルjson定義ファイル
+
 ```
