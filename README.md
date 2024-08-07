@@ -1,6 +1,12 @@
 # IoTBook
 
-書籍「AWS IoTで実現するデータ活用法(仮)」で使用するソースコードを格納しています。
+## 書籍リンク
+- [Amazon購入ページ](リンク先)
+- [技術評論社の書籍ページ](リンク先)
+
+
+## ディレクトリ構成
+書籍で使用するソースコードを格納しています。
 本リポジトリのフォルダ構成は以下のようになっています。
 ```
 .
@@ -30,3 +36,60 @@
     └── prepare_data.sh　　//5章で使用する写真をコピーするためのシェルスクリプト
 
 ```
+
+## 書籍内リンク
+### 2章
+- Freenove ESP32-WROVER CAMボード
+https://www.amazon.co.jp/dp/B09BC5CNHM
+
+- Andruno IDE
+https://www.arduino.cc/en/software
+
+- Micropython
+http://micropython.org/
+
+- Getting Started with ESP-IDF
+https://idf.espressif.com/
+
+- espressif/esp-iot-aws
+https://github.com/espressif/esp-aws-iot
+
+### 3章
+- aws/aws-iot-device-sdk-python-v2　AWS IoT Jobのサンプルプログラム
+https://github.com/aws/aws-iot-device-sdk-python-v2/blob/main/samples/jobs.py
+
+- AWS SAM CLIのインストール手順
+https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/install-sam-cli.html
+
+### 4章
+- AWS Pricing Calculator
+https://calculator.aws/#/
+
+- Anacron-sec/esp32-DHT11
+https://github.com/Anacron-mb/esp32-DHT11
+
+### 5章
+- espressif/esp32-camera
+https://github.com/espressif/esp32-camera
+
+- Download the MVTec AD dataset
+https://www.mvtec.com/company/research/datasets/mvtec-ad/downloads
+
+### 6章
+- NASA Bearing Dataset
+https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/
+
+- NASA Bearing Dataset（Kaggle)
+https://www.kaggle.com/datasets/vinayak123tyagi/bearing-dataset
+
+- AWSブログ “「もう悩まない！機械学習モデルのデプロイパターンと戦略」を解説する動画を公開しました！”
+https://aws.amazon.com/jp/blogs/news/ml-enablement-series-dark05/
+
+- Random Cut Forest (RCF) Algorithm
+https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/randomcutforest.html
+
+- Robust Random Cut Forest Based Anomaly Detection On Streams
+http://proceedings.mlr.press/v48/guha16.pdf
+
+- Machine Learning Lens
+https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html
