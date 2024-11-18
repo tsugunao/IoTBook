@@ -1,8 +1,8 @@
 # IoTBook
 
 ## 書籍リンク
-- [Amazon購入ページ](リンク先)
-- [技術評論社の書籍ページ](リンク先)
+- [Amazon購入ページ](https://amzn.asia/d/7qiXLRF)
+- [技術評論社の書籍ページ](https://gihyo.jp/book/2024/978-4-297-14518-7)
 
 
 ## ディレクトリ構成
@@ -68,14 +68,8 @@ https://calculator.aws/#/
 - Anacron-sec/esp32-DHT11
 https://github.com/Anacron-mb/esp32-DHT11
 
+
 ### 5章
-- espressif/esp32-camera
-https://github.com/espressif/esp32-camera
-
-- Download the MVTec AD dataset
-https://www.mvtec.com/company/research/datasets/mvtec-ad/downloads
-
-### 6章
 - NASA Bearing Dataset
 https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/
 
