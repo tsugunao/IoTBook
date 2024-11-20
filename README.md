@@ -32,8 +32,8 @@
 │    └── sfn
 │        └── anomaly-detection.asl.json //予兆検知システムのStepFunctionsのステートマシーンサンプルjson定義ファイル
 └── scripts
-    ├── prepare_data.ps1  //5章で使用する写真をコピーするためのPowerShellスクリプト
-    └── prepare_data.sh　　//5章で使用する写真をコピーするためのシェルスクリプト
+    ├── prepare_data.ps1  //写真をコピーするためのPowerShellスクリプト
+    └── prepare_data.sh　　//写真をコピーするためのシェルスクリプト
 
 ```
 

@@ -5,7 +5,7 @@ import boto3
 import statistics
 import datetime as dt
 
-
+# s3ファイル取得関数
 def get_s3file(s3_session, bucket_name, key):
     s3obj = s3_session.Object(bucket_name, key).get()
 
@@ -13,15 +13,18 @@ def get_s3file(s3_session, bucket_name, key):
 
 
 def lambda_handler(event, context):
+    # Lambda環境変数の読み込み
     bucket_name = os.environ['BUCKET_NAME']
     prefix_key = "{}/{}/{}/{}".format(os.environ['PREFIX_KEY'], event["PrevYear"], event["PrevMonth"],
                                       event["PrevDay"])
     threshold = float(os.environ['THRESHOLD'])
 
+    # S3オブジェクトのリスト取得
     s3_client = boto3.resource('s3')
     bucket = s3_client.Bucket(bucket_name)
     response = bucket.meta.client.list_objects_v2(Bucket=bucket.name, Prefix=prefix_key)
 
+    # パラメータ定義
     list_anomalyscore = []
     message_template = {
         "normal": "ベアリングの状態は正常です。",
@@ -29,7 +32,7 @@ def lambda_handler(event, context):
     }
     message = ""
 
-    # 各ファイルでのデータ処理
+    # 推論結果ファイルの読み込みと判定
     for obj in response['Contents']:
         if obj["Size"] != 0:
             prefixKey = obj["Key"]
@@ -47,10 +50,12 @@ def lambda_handler(event, context):
             datetime_min = min([dt.datetime.strptime(_datetime, '%Y-%m-%d %H:%M:%S.%f') for _datetime in datetime_list])
             anomaly_score_median = statistics.median([float(s) for s in score_list])
 
+            # 閾値判定
             if anomaly_score_median >= threshold:
                 # 各ファイルごとの統計値を取得
                 list_anomalyscore.append([datetime_min, anomaly_score_median])
 
+    # 配信するメッセージ選択
     if len(list_anomalyscore) == 0:
         message = message_template["normal"]
     else:
