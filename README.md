@@ -43,10 +43,12 @@
 https://www.amazon.co.jp/dp/B09BC5CNHM
 
 > [!NOTE]
->2025/5/27日現在リンク切れになっております。
+>2025/5/27日現在、上記がリンク切れになっております。
 >以下のオフィシャルのリンクから購入が可能です。
 > * https://github.com/Freenove/Freenove_ESP32_WROVER_Board
 > * https://ja.aliexpress.com/item/1005004339923548.html
+> もしくは、ピン配置が書籍内の解説とは異なってしまいますが、以下の代替をご検討ください。
+> * https://akizukidenshi.com/catalog/g/g115674/
   
 
 - Andruno IDE
