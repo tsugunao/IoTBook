@@ -42,13 +42,12 @@
 - Freenove ESP32-WROVER CAMボード
 https://www.amazon.co.jp/dp/B09BC5CNHM
 
-:::note warn
-2025/5/27日現在リンク切れになっております。
-以下のオフィシャルのリンクから購入が可能です。
-
-* https://github.com/Freenove/Freenove_ESP32_WROVER_Board
-* https://ja.aliexpress.com/item/1005004339923548.html
-:::
+> [!NOTE]
+>2025/5/27日現在リンク切れになっております。
+>以下のオフィシャルのリンクから購入が可能です。
+> * https://github.com/Freenove/Freenove_ESP32_WROVER_Board
+> * https://ja.aliexpress.com/item/1005004339923548.html
+  
 
 - Andruno IDE
 https://www.arduino.cc/en/software
